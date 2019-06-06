@@ -3,7 +3,7 @@ from flask_login import LoginManager, login_required, UserMixin, login_user, log
 from urllib.parse import urlparse, urljoin
 
 app = Flask(__name__)
-app.secret_key = "F5e9d824e9!"
+app.secret_key = "super_secret_key"
 login_manager = LoginManager(app)
 users = ['rossi', 'bianchi', 'verdi']
 
