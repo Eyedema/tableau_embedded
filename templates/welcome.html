@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tableau Embedded Demo</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="static/loadviz.js"></script>
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  </head>
+
+
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/welcome">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col-md-2">
+                <img alt="Bootstrap Image Preview" src="static/logo_cg.png" />
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-center">{% if current_user.is_authenticated %}Hi {{ current_user.name }}! {% endif %}Welcome to the Tableau Embedded Demo!
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-group col-mt-2 list-group-flush">
+                <a onClick="switchView(0)" class="list-group-item list-group-item-action">Overview</a>
+                <a onClick="switchView(1)" class="list-group-item list-group-item-action">Product Drilldown</a>
+                <a onClick="switchView(2)" class="list-group-item list-group-item-action">Customer Analysis</a>
+                <a onClick="switchView(3)" class="list-group-item list-group-item-action">On-Time Shipment Trends</a>
+                <a onClick="switchView(4)" class="list-group-item list-group-item-action">Sales Performance vs Target</a>
+                <a onClick="switchView(5)" class="list-group-item list-group-item-action">What if Forecast</a>
+                <a onClick="show('Region','Central')" class="list-group-item list-group-item-action">Show Central Region</a>
+                <a onClick="resetViz()" class="list-group-item list-group-item-action">Reset Filters</a>
+                <a onclick="exportPDF()" class="list-group-item list-group-item-action">Export as PDF</a>
+            </div>
+            <div class="col-md-8" id="myViz">
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

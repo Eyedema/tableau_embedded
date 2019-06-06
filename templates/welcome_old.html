@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tableau Embedded Demo</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="static/loadviz.js"></script>
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  </head>
+
+
+  <body>
+    <div class="container-fluid">
+        <div class='row'>
+            <div class='span3'><img src='static/logo_cg.png' ></div>
+            <div class='span3'><img src='static/logo.png' ></div>
+            <h2 class='span7'>{% if current_user.is_authenticated %}
+                Hi {{ current_user.name }}! 
+              {% endif %}Welcome to the Tableau Embdedded Demo!</h2>
+          </div>
+      <!--<p>Click <a href="/welcome">here</a> to go home. Click <a href="/logout">here</a> to logout. </p>-->
+    <div class='row'>
+        <ul id = 'menu' class='nav nav-list span2'>
+          <li class='nav-header'>Switching Views</li>
+          <li><a onClick="switchView(0)">Overview</a></li>
+          <p></p>
+          <li><a onClick="switchView(1)">Product Drilldown</a></li>
+          <p></p>
+          <li><a onClick="switchView(2)">Customer Analysis</a></li>
+          <p></p>
+          <li><a onClick="switchView(3)">On-Time Shipment Trends</a></li>
+          <p></p>
+          <li><a onClick="switchView(4)">Sales Performance vs Target</a></li>
+          <p></p>
+          <li><a onClick="switchView(6)">What if Forecast</a></li>
+  
+          <li class='nav-header'>Filtering</li>
+          <li><a onClick="show('Region','Central')">Show Central Region</a></li>
+          <p></p>
+          <li><a onClick="resetViz()">Reset Filters</a></li>
+  
+          <li class="nav-header">Export</li>
+          <li><a onclick="exportPDF()">Export as PDF</a></li>
+        </ul>
+      </div>      
+    </div>
+    <div class="row align-items-center justify-content-center" id="myViz"></div>
+  </body>
+</html>
