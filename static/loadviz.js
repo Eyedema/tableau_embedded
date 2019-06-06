@@ -13,6 +13,8 @@ window.onload = function() {
         hideTabs: false
     }
     viz = new tableau.Viz(vizDiv, vizUrl, options);
+    var intro = 1
+    var stringa = "esempio"
 }
 
 // Switch the viz to the sheet specified
